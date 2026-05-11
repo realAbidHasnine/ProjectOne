@@ -68,6 +68,7 @@ public class UserService {
             throw new RuntimeException("User not Found to Upadte Bio");
         }
 
+        entity.setBio(bio);
         UserEntity updatedEntity = userRepo.save(entity);
         return toResponse(updatedEntity);
     }
