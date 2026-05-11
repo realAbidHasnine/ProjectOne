@@ -61,14 +61,14 @@ public class UserService {
         return toResponse(entity);
     }
 
-    public UserResponseDTO updateBio(Long id, String bio) {
+    public UserResponseDTO updateBio(Long id, UserRequestDTO userReqDTO) {
         UserEntity entity = userRepo.findById(id).orElse(null);
 
         if (entity == null) {
             throw new RuntimeException("User not Found to Upadte Bio");
         }
 
-        entity.setBio(bio);
+        entity.setBio(userReqDTO.getBio());
         UserEntity updatedEntity = userRepo.save(entity);
         return toResponse(updatedEntity);
     }

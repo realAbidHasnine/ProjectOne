@@ -17,12 +17,11 @@ public class PostEntity {
     private Long id;
     private String authorName;
 
-    @Column(nullable = false , length = 280)
+    @Column(nullable = false, length = 280)
     private String content;
-    
+
     private boolean active = true;
 
     @CreatedDate
     private LocalDateTime createdAt;
-    
 }

@@ -1,6 +1,6 @@
 package com.Rush.ProjectOne.Controller;
 
-import java.util.Map;
+
 import org.springframework.web.bind.annotation.*;
 import com.Rush.ProjectOne.DTO.UserRequestDTO;
 import com.Rush.ProjectOne.DTO.UserResponseDTO;
@@ -11,7 +11,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    
+
     private final UserService userService;
 
     public UserController(UserService userService){
@@ -29,8 +29,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserResponseDTO updateBIO(@PathVariable Long id,@RequestBody Map<String,String> userBody){
-        String updated_bio = userBody.get("bio");
-        return userService.updateBio(id, updated_bio);
+    public UserResponseDTO updateBIO(@PathVariable Long id,@Valid @RequestBody UserRequestDTO userReqDTO){
+        return userService.updateBio(id, userReqDTO);
     }
 }
