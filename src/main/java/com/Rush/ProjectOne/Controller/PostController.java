@@ -34,6 +34,6 @@ public class PostController{
     @DeleteMapping("/{id}")
     public String deletePOST(@PathVariable Long id){
         postService.deletePost(id);
-        return "User Deleted Successfully";
+        return "User Post Deleted Successfully";
     }
 }
