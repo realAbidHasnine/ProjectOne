@@ -8,7 +8,7 @@ import com.Rush.ProjectOne.DTO.PostRequestDTO;
 import com.Rush.ProjectOne.DTO.PostResponseDTO;
 import com.Rush.ProjectOne.Service.PostService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import jakarta.validation.Valid;
 
 @RestController
