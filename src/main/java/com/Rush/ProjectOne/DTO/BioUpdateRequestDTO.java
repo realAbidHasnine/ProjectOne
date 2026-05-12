@@ -1,5 +1,8 @@
 package com.Rush.ProjectOne.DTO;
 
-public class BioUpdateRequestDTO {
+import lombok.Data;
 
+@Data
+public class BioUpdateRequestDTO {
+    private String bio;
 }

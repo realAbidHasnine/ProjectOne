@@ -2,6 +2,7 @@ package com.Rush.ProjectOne.Service;
 
 import org.springframework.stereotype.Service;
 
+import com.Rush.ProjectOne.DTO.BioUpdateRequestDTO;
 import com.Rush.ProjectOne.DTO.UserRequestDTO;
 import com.Rush.ProjectOne.DTO.UserResponseDTO;
 import com.Rush.ProjectOne.Entity.UserEntity;
@@ -61,14 +62,14 @@ public class UserService {
         return toResponse(entity);
     }
 
-    public UserResponseDTO updateBio(Long id, UserRequestDTO userReqDTO) {
+    public UserResponseDTO updateBio(Long id, BioUpdateRequestDTO bioReqDTO) {
         UserEntity entity = userRepo.findById(id).orElse(null);
 
         if (entity == null) {
             throw new RuntimeException("User not Found to Upadte Bio");
         }
 
-        entity.setBio(userReqDTO.getBio());
+        entity.setBio(bioReqDTO.getBio());
         UserEntity updatedEntity = userRepo.save(entity);
         return toResponse(updatedEntity);
     }

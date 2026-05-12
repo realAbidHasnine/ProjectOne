@@ -2,6 +2,8 @@ package com.Rush.ProjectOne.Controller;
 
 
 import org.springframework.web.bind.annotation.*;
+
+import com.Rush.ProjectOne.DTO.BioUpdateRequestDTO;
 import com.Rush.ProjectOne.DTO.UserRequestDTO;
 import com.Rush.ProjectOne.DTO.UserResponseDTO;
 import com.Rush.ProjectOne.Service.UserService;
@@ -29,7 +31,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserResponseDTO updateBIO(@PathVariable Long id,@Valid @RequestBody UserRequestDTO userReqDTO){
-        return userService.updateBio(id, userReqDTO);
+    public UserResponseDTO updateBIO(@PathVariable Long id,@Valid @RequestBody BioUpdateRequestDTO bioReqDTO){
+        return userService.updateBio(id, bioReqDTO);
     }
 }
