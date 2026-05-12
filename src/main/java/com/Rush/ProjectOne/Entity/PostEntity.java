@@ -24,4 +24,6 @@ public class PostEntity {
 
     @CreatedDate
     private LocalDateTime createdAt;
+    
+    private String email;
 }
