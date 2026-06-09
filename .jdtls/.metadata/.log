@@ -1,0 +1,287 @@
+!SESSION 2026-05-13 20:01:28.189 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=24.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data .jdtls
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:41.782
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.018
+!MESSAGE Started org.eclipse.buildship.core 37ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.018
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.236
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.281
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.284
+!MESSAGE Initializing Java Language Server 1.49.0.202507311558
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.900
+!MESSAGE ProjectRegistryRefreshJob finished 882ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.956
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.958
+!MESSAGE Non-Static Commands: [java.project.import, java.project.changeImportedProjects, java.navigate.openTypeHierarchy, java.project.resolveStackTraceLocation, java.edit.handlePasteEvent, java.edit.stringFormatting, java.project.getSettings, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.vm.getAllInstalls, java.edit.organizeImports, java.project.refreshDiagnostics, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.updateSettings, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.project.resolveText, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.smartSemicolonDetection, java.project.updateSourceAttachment, java.project.updateClassPaths, java.decompile, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.updateJdk, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.970
+!MESSAGE RepositoryRegistryUpdateJob finished 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.996
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:42.996
+!MESSAGE Initializing Java Language Server 1.49.0.202507311558
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:43.037
+!MESSAGE Importing Maven project(s)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:01:46.009
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.launching 4 4 2026-05-13 20:01:46.120
+!MESSAGE Process returned with error code "1".
+Command line arguments: C:\Program Files\Java\jdk-23\bin\javaw.exe -Xmx16m -classpath C:\Users\USER\.config\lite-xl\plugins\lsp_java\config_win\org.eclipse.osgi\57\0\.cp\lib\launchingsupport.jar org.eclipse.jdt.internal.launching.support.LibraryDetector
+Output: Standard output:
+Error occurred during initialization of VM
+Failed setting boot class path.
+
+Standard error:
+
+!STACK 0
+java.lang.IllegalStateException: Process returned with error code "1".
+Command line arguments: C:\Program Files\Java\jdk-23\bin\javaw.exe -Xmx16m -classpath C:\Users\USER\.config\lite-xl\plugins\lsp_java\config_win\org.eclipse.osgi\57\0\.cp\lib\launchingsupport.jar org.eclipse.jdt.internal.launching.support.LibraryDetector
+Output: Standard output:
+Error occurred during initialization of VM
+Failed setting boot class path.
+
+Standard error:
+
+	at org.eclipse.jdt.internal.launching.StandardVMType.checkProcessResult(StandardVMType.java:895)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:706)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:223)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:441)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:250)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:644)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.lambda$15(DetectVMInstallationsJob.java:181)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:196)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(HashMap.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.computeCandidateVMs(DetectVMInstallationsJob.java:182)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.run(DetectVMInstallationsJob.java:72)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2026-05-13 20:01:46.121
+!MESSAGE Failed to import projects
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:219)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:95)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:316)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:302)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.create(ProjectConfigurationManager.java:843)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$1(ProjectConfigurationManager.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:139)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:130)
+	at org.eclipse.jdt.ls.core.internal.managers.MavenProjectImporter.importToWorkspace(MavenProjectImporter.java:242)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.importProjects(ProjectsManager.java:164)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.initializeProjects(ProjectsManager.java:126)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler$1.runInWorkspace(InitHandler.java:263)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: OK
+Contains: C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2026-05-13 20:01:46.123
+!MESSAGE Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+!SUBENTRY 2 unknown 0 0 2026-05-13 20:01:46.123
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2026-05-13 20:01:46.123
+!MESSAGE C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2026-05-13 20:02:09.903
+!MESSAGE Initialization failed 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to import projects
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.importProjects(ProjectsManager.java:177)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.initializeProjects(ProjectsManager.java:126)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler$1.runInWorkspace(InitHandler.java:263)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+Contains: OK
+Contains: C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+!SUBENTRY 1 org.eclipse.jdt.ls.core 4 -1 2026-05-13 20:02:09.903
+!MESSAGE Failed to import projects
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.903
+!MESSAGE Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+!SUBENTRY 3 unknown 0 0 2026-05-13 20:02:09.903
+!MESSAGE OK
+!SUBENTRY 3 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.903
+!MESSAGE C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+
+!ENTRY org.eclipse.jdt.launching 4 4 2026-05-13 20:02:09.905
+!MESSAGE Failed to retrieve default libraries for C:\Program Files\Java\jdk-23
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.910
+!MESSAGE RepositoryRegistryUpdateJob finished 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.954
+!MESSAGE Importing Maven project(s)
+
+!ENTRY org.eclipse.jdt.launching 4 4 2026-05-13 20:02:09.960
+!MESSAGE Process returned with error code "1".
+Command line arguments: C:\Program Files\Java\jdk-23\bin\javaw.exe -Xmx16m -classpath C:\Users\USER\.config\lite-xl\plugins\lsp_java\config_win\org.eclipse.osgi\57\0\.cp\lib\launchingsupport.jar org.eclipse.jdt.internal.launching.support.LibraryDetector
+Output: Standard output:
+Error occurred during initialization of VM
+Failed setting boot class path.
+
+Standard error:
+
+!STACK 0
+java.lang.IllegalStateException: Process returned with error code "1".
+Command line arguments: C:\Program Files\Java\jdk-23\bin\javaw.exe -Xmx16m -classpath C:\Users\USER\.config\lite-xl\plugins\lsp_java\config_win\org.eclipse.osgi\57\0\.cp\lib\launchingsupport.jar org.eclipse.jdt.internal.launching.support.LibraryDetector
+Output: Standard output:
+Error occurred during initialization of VM
+Failed setting boot class path.
+
+Standard error:
+
+	at org.eclipse.jdt.internal.launching.StandardVMType.checkProcessResult(StandardVMType.java:895)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:706)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:226)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:441)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:250)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:644)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.lambda$15(DetectVMInstallationsJob.java:181)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:196)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(HashMap.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.computeCandidateVMs(DetectVMInstallationsJob.java:182)
+	at org.eclipse.jdt.internal.launching.DetectVMInstallationsJob.run(DetectVMInstallationsJob.java:72)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2026-05-13 20:02:09.961
+!MESSAGE Failed to import projects
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:219)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:95)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:316)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:302)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.create(ProjectConfigurationManager.java:843)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$1(ProjectConfigurationManager.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:139)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:130)
+	at org.eclipse.jdt.ls.core.internal.managers.MavenProjectImporter.importToWorkspace(MavenProjectImporter.java:242)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.importProjects(ProjectsManager.java:164)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.initializeProjects(ProjectsManager.java:126)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler$1.runInWorkspace(InitHandler.java:263)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: OK
+Contains: C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.961
+!MESSAGE Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+!SUBENTRY 2 unknown 0 0 2026-05-13 20:02:09.961
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.961
+!MESSAGE C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+
+!ENTRY org.eclipse.jdt.launching 4 4 2026-05-13 20:02:09.961
+!MESSAGE Failed to retrieve default libraries for C:\Program Files\Java\jdk-23
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2026-05-13 20:02:09.962
+!MESSAGE Initialization failed 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to import projects
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.importProjects(ProjectsManager.java:177)
+	at org.eclipse.jdt.ls.core.internal.managers.ProjectsManager.initializeProjects(ProjectsManager.java:126)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler$1.runInWorkspace(InitHandler.java:263)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+Contains: OK
+Contains: C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+!SUBENTRY 1 org.eclipse.jdt.ls.core 4 -1 2026-05-13 20:02:09.962
+!MESSAGE Failed to import projects
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.962
+!MESSAGE Invalid project description for project 'ProjectOne' at 'file:/C:/Users/USER/Desktop/ProjectOne' 
+!SUBENTRY 3 unknown 0 0 2026-05-13 20:02:09.962
+!MESSAGE OK
+!SUBENTRY 3 org.eclipse.core.resources 4 77 2026-05-13 20:02:09.962
+!MESSAGE C:\Users\USER\Desktop\ProjectOne overlaps the workspace location: C:\Users\USER\Desktop\ProjectOne\.jdtls
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.967
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.992
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.993
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:09.997
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:10.093
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:11.381
+!MESSAGE Reconciled 4. Took 11 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.037
+!MESSAGE begin problem for /BioUpdateRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.043
+!MESSAGE 1 problems reported for /BioUpdateRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.109
+!MESSAGE begin problem for /PostRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.112
+!MESSAGE 1 problems reported for /PostRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.155
+!MESSAGE begin problem for /UserRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.158
+!MESSAGE 1 problems reported for /UserRequestDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.200
+!MESSAGE begin problem for /PostResponseDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.202
+!MESSAGE 1 problems reported for /PostResponseDTO.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2026-05-13 20:02:12.205
+!MESSAGE Validated 4. Took 218 ms
