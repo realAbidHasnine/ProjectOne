@@ -1,80 +1,74 @@
-package com.Rush.ProjectOne.Service;
+package com.Rush.ProjectOne.service;
+
+import com.Rush.ProjectOne.dto.PostRequestDTO;
+import com.Rush.ProjectOne.dto.PostResponseDTO;
+import com.Rush.ProjectOne.entity.PostEntity;
+import com.Rush.ProjectOne.entity.UserEntity;
+import com.Rush.ProjectOne.exception.InvalidOperationException;
+import com.Rush.ProjectOne.exception.ResourceNotFoundException;
+import com.Rush.ProjectOne.repository.PostRepository;
+import com.Rush.ProjectOne.repository.UserRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
-
-import com.Rush.ProjectOne.DTO.PostRequestDTO;
-import com.Rush.ProjectOne.DTO.PostResponseDTO;
-import com.Rush.ProjectOne.Entity.PostEntity;
-import com.Rush.ProjectOne.Entity.UserEntity;
-import com.Rush.ProjectOne.Repository.PostRepository;
-import com.Rush.ProjectOne.Repository.UserRepository;
 
 @Service
 public class PostService {
 
-    private final PostRepository postRepo;
+    private final PostRepository postRepository;
+    private final UserRepository userRepository;
 
-    private final UserRepository userRepo;
-
-    public PostService(PostRepository postRepo,UserRepository userRepo) {
-        this.postRepo = postRepo;
-        this.userRepo = userRepo;
+    public PostService(PostRepository postRepository, UserRepository userRepository) {
+        this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
-    private PostEntity toPost(PostRequestDTO postReqDTO) {
+    @Transactional
+    public PostResponseDTO createPost(PostRequestDTO request) {
+        UserEntity user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new InvalidOperationException(
+                        "No user registered with email: " + request.getEmail()));
 
-        PostEntity postEntity = new PostEntity();
+        PostEntity post = PostEntity.builder()
+                .authorName(request.getAuthorName())
+                .content(request.getContent())
+                .user(user)
+                .build();
 
-        postEntity.setAuthorName(postReqDTO.getAuthorName());
-        postEntity.setContent(postReqDTO.getContent());
-        postEntity.setEmail(postReqDTO.getEmail());
-
-        return postEntity;
-
+        PostEntity saved = postRepository.save(post);
+        return toResponse(saved);
     }
 
-    private PostResponseDTO toPostResponse(PostEntity post) {
-
-        PostResponseDTO postBody = new PostResponseDTO();
-
-        postBody.setId(post.getId());
-        postBody.setAuthorName(post.getAuthorName());
-        postBody.setContent(post.getContent());
-        postBody.setCreatedAt(post.getCreatedAt());
-
-        return postBody;
-    }
-
-    public PostResponseDTO createPost(PostRequestDTO postReqDTO) {
-
-        UserEntity poster =  userRepo.findByEmail(postReqDTO.getEmail()).orElse(null);
-
-        if(poster == null){
-            throw new RuntimeException("User Not Registered Please Register with Email");
-        }
-
-        PostEntity post = toPost(postReqDTO);
-        PostEntity savPostEntity = postRepo.save(post);
-
-        return toPostResponse(savPostEntity);
-    }
-
+    @Transactional(readOnly = true)
     public List<PostResponseDTO> getAllPosts() {
-        return postRepo.findByActiveTrue()
+        return postRepository.findByActiveTrue()
                 .stream()
-                .map(post -> toPostResponse(post))
+                .map(this::toResponse)
                 .toList();
     }
 
+    @Transactional
     public void deletePost(Long id) {
-        PostEntity post = postRepo.findById(id).orElse(null);
+        PostEntity post = postRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Post", id));
 
-        if (post == null) {
-            throw new RuntimeException("User All ready deleted");
+        if (!post.isActive()) {
+            throw new InvalidOperationException("Post is already deleted");
         }
+
         post.setActive(false);
-        postRepo.save(post);
+        postRepository.save(post);
     }
 
+    private PostResponseDTO toResponse(PostEntity post) {
+        return PostResponseDTO.builder()
+                .id(post.getId())
+                .authorName(post.getAuthorName())
+                .content(post.getContent())
+                .createdAt(post.getCreatedAt())
+                .userId(post.getUser().getId())
+                .userEmail(post.getUser().getEmail())
+                .build();
+    }
 }

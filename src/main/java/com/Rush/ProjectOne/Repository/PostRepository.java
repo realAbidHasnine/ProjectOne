@@ -1,9 +1,10 @@
-package com.Rush.ProjectOne.Repository;
+package com.Rush.ProjectOne.repository;
+
+import com.Rush.ProjectOne.entity.PostEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.Rush.ProjectOne.Entity.PostEntity;
 
-public interface PostRepository extends JpaRepository<PostEntity,Long> {
+public interface PostRepository extends JpaRepository<PostEntity, Long> {
     List<PostEntity> findByActiveTrue();
-} 
+}

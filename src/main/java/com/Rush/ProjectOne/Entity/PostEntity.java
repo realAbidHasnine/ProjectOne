@@ -1,29 +1,40 @@
-package com.Rush.ProjectOne.Entity;
+package com.Rush.ProjectOne.entity;
 
-import java.time.LocalDateTime;
-
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "posts")
 public class PostEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String authorName;
 
     @Column(nullable = false, length = 280)
     private String content;
 
+    @Builder.Default
     private boolean active = true;
 
     @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime createdAt;
-    
-    private String email;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 }

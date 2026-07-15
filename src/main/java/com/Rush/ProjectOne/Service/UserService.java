@@ -1,76 +1,64 @@
-package com.Rush.ProjectOne.Service;
+package com.Rush.ProjectOne.service;
 
+import com.Rush.ProjectOne.dto.BioUpdateRequestDTO;
+import com.Rush.ProjectOne.dto.UserRequestDTO;
+import com.Rush.ProjectOne.dto.UserResponseDTO;
+import com.Rush.ProjectOne.entity.UserEntity;
+import com.Rush.ProjectOne.exception.DuplicateEmailException;
+import com.Rush.ProjectOne.exception.ResourceNotFoundException;
+import com.Rush.ProjectOne.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
-import com.Rush.ProjectOne.DTO.BioUpdateRequestDTO;
-import com.Rush.ProjectOne.DTO.UserRequestDTO;
-import com.Rush.ProjectOne.DTO.UserResponseDTO;
-import com.Rush.ProjectOne.Entity.UserEntity;
-import com.Rush.ProjectOne.Repository.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
 
-    private final UserRepository userRepo;
+    private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepo) {
-        this.userRepo = userRepo;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public UserEntity toEntity(UserRequestDTO userReqDTO) {
-
-        UserEntity userEntity = new UserEntity();
-
-        userEntity.setFullName(userReqDTO.getFullName());
-        userEntity.setEmail(userReqDTO.getEmail());
-        userEntity.setBio(userReqDTO.getBio());
-
-        return userEntity;
-    }
-
-    public UserResponseDTO toResponse(UserEntity entity) {
-
-        UserResponseDTO resDTO = new UserResponseDTO();
-
-        resDTO.setId(entity.getId());
-        resDTO.setEmail(entity.getEmail());
-        resDTO.setFullName(entity.getFullName());
-        resDTO.setBio(entity.getBio());
-
-        return resDTO;
-    }
-
-    public UserResponseDTO createUser(UserRequestDTO userReqDTO) {
-
-        if (userRepo.findByEmail(userReqDTO.getEmail()).isPresent()) {
-            throw new RuntimeException("Email Already in Use");
+    @Transactional
+    public UserResponseDTO createUser(UserRequestDTO request) {
+ 
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new DuplicateEmailException(request.getEmail());
         }
 
-        UserEntity entity = toEntity(userReqDTO);
-        UserEntity saveEntity = userRepo.save(entity);
+        UserEntity entity = UserEntity.builder()
+                .fullName(request.getFullName())
+                .email(request.getEmail())
+                .bio(request.getBio())
+                .build();
 
-        return toResponse(saveEntity);
+        UserEntity saved = userRepository.save(entity);
+        return toResponse(saved);
     }
 
+    @Transactional(readOnly = true)
     public UserResponseDTO getUserById(Long id) {
-        UserEntity entity = userRepo.findById(id).orElse(null);
-
-        if (entity == null) {
-            throw new RuntimeException("User not Found!!");
-        }
-
+        UserEntity entity = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", id));
         return toResponse(entity);
     }
 
-    public UserResponseDTO updateBio(Long id, BioUpdateRequestDTO bioReqDTO) {
-        UserEntity entity = userRepo.findById(id).orElse(null);
+    @Transactional
+    public UserResponseDTO updateBio(Long id, BioUpdateRequestDTO request) {
+        UserEntity entity = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", id));
 
-        if (entity == null) {
-            throw new RuntimeException("User not Found to Upadte Bio");
-        }
+        entity.setBio(request.getBio());
+        UserEntity updated = userRepository.save(entity);
+        return toResponse(updated);
+    }
 
-        entity.setBio(bioReqDTO.getBio());
-        UserEntity updatedEntity = userRepo.save(entity);
-        return toResponse(updatedEntity);
+    private UserResponseDTO toResponse(UserEntity entity) {
+        return UserResponseDTO.builder()
+                .id(entity.getId())
+                .fullName(entity.getFullName())
+                .email(entity.getEmail())
+                .bio(entity.getBio())
+                .build();
     }
 }

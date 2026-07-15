@@ -1,37 +1,43 @@
-package com.Rush.ProjectOne.Controller;
+package com.Rush.ProjectOne.controller;
 
-
-import org.springframework.web.bind.annotation.*;
-
-import com.Rush.ProjectOne.DTO.BioUpdateRequestDTO;
-import com.Rush.ProjectOne.DTO.UserRequestDTO;
-import com.Rush.ProjectOne.DTO.UserResponseDTO;
-import com.Rush.ProjectOne.Service.UserService;
+import com.Rush.ProjectOne.dto.BioUpdateRequestDTO;
+import com.Rush.ProjectOne.dto.UserRequestDTO;
+import com.Rush.ProjectOne.dto.UserResponseDTO;
+import com.Rush.ProjectOne.service.UserService;
 import jakarta.validation.Valid;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
+    //declare service
     private final UserService userService;
 
-    public UserController(UserService userService){
+    //constructor
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping
-    public UserResponseDTO createUSER(@Valid @RequestBody UserRequestDTO userReqDTO){
-        return userService.createUser(userReqDTO); 
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO request) {
+        UserResponseDTO response = userService.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/{id}")
-    public UserResponseDTO getUSERBYID(@PathVariable Long id){
-        return userService.getUserById(id);
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
+        UserResponseDTO response = userService.getUserById(id);
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/{id}")
-    public UserResponseDTO updateBIO(@PathVariable Long id,@Valid @RequestBody BioUpdateRequestDTO bioReqDTO){
-        return userService.updateBio(id, bioReqDTO);
+    public ResponseEntity<UserResponseDTO> updateBio(
+            @PathVariable Long id,
+            @Valid @RequestBody BioUpdateRequestDTO request) {
+        UserResponseDTO response = userService.updateBio(id, request);
+        return ResponseEntity.ok(response);
     }
 }
