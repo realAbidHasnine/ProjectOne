@@ -27,7 +27,28 @@ public class UserEntity {
 
     private String bio;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private UserProfileEntity profile = null;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<PostEntity> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<CommentEntity> comments = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_followers",
+            joinColumns = @JoinColumn(name = "followed_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id")
+    )
+    @Builder.Default
+    private List<UserEntity> followers = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "followers")
+    @Builder.Default
+    private List<UserEntity> following = new ArrayList<>();
 }
